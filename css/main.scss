@@ -36,7 +36,7 @@ body {
         background-image: url("../images/bg-desktop.png");
         background-color: $Very-Dark-Blue;
         background-size: 100% 50%;
-        background-position: 40% 80%;
+        background-position: 0 100%;
         
     }
 }
@@ -100,10 +100,15 @@ body {
 
     @include desktop {
         width: 60%;
+        padding: 1.5rem 2rem;
+        margin-top: 3rem;
     }
 
     .description {
         color: $Pale-Blue;
+        @include desktop {
+            text-align: left;
+        }
 
         p {
             font-size: .8rem;
@@ -120,6 +125,10 @@ body {
         margin-top: 5%;
         padding: .2rem;
         border-radius: 20px;
+
+        @include desktop {
+            margin-top: .5rem;
+        }
 
         .bar {
             border-radius: 20px;
@@ -147,6 +156,10 @@ body {
         margin: .5rem 0 1.5rem 0;
         font-size: .8rem;
         font-weight: bold;
+
+        @include desktop {
+            margin: .5rem 0 1rem 0;
+        }
     }  
 }
 
@@ -162,21 +175,18 @@ body {
         width: 100%;
         margin-top: -25%;
 
-        /*
-        .status:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0;
-    z-index: 1;
-    border-style: solid;
-    border-width: 20px 20px 0 0;
-    border-color: #000000 transparent transparent transparent;
-    bottom: -20px;
-    left: 50%;
-    margin-left: -10px;
-}
-        */
+        @include desktop {
+            border-radius: 10px 10px 0 10px;
+            position: absolute;
+            width: 10rem;
+            right: 23%;
+            bottom: 55%;
+            padding: .5rem 1rem;
+            
+        }
+
+    }
+
 
         p {
 
@@ -193,5 +203,22 @@ body {
             }
         }
 
+}
+
+@include desktop {
+
+.status:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: $Pale-Blue transparent transparent transparent;
+    bottom: -20px;
+    left: 80%;
+    margin-left: 12px;
+    transform: rotate(90deg);
     }
 }
