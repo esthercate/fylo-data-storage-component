@@ -10,18 +10,70 @@ body {
   background: url(../images/bg-mobile.png) no-repeat;
   font-family: "Raleway", sans-serif;
   font-size: 14px;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.grid-container {
+@media (min-width: 900px) {
+  body {
+    background-image: url("../images/bg-desktop.png");
+    background-color: #0c122c;
+    background-size: 100% 50%;
+    background-position: 40% 80%;
+  }
+}
+
+.container {
   max-width: 375px;
-  padding: 3rem 3rem;
-  margin-top: 5rem;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 900px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    min-width: 800px;
+  }
 }
 
 .header {
   background-color: #1d2c67;
   padding: 2.5rem;
-  border-radius: 8px 80px 8px 8px;
+  border-radius: 10px 80px 10px 10px;
+  width: 80%;
+}
+
+@media (min-width: 900px) {
+  .header {
+    width: 40%;
+    margin-right: 2rem;
+  }
 }
 
 .header .logo img {
@@ -48,35 +100,105 @@ body {
 .main {
   background-color: #1d2c67;
   margin-top: 1rem;
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 10px;
+  padding: 2rem;
   text-align: center;
+  width: 80%;
+}
+
+@media (min-width: 900px) {
+  .main {
+    width: 60%;
+  }
 }
 
 .main .description {
-  color: #848794;
-}
-
-.main .description span {
   color: #dddbff;
 }
 
-.main .status {
-  background-color: #dddbff;
-  color: #0c122c;
-  font-weight: 700;
-  padding: 1rem 0;
-  width: 60%;
-  border-radius: 8px;
-  margin: auto;
-  margin-bottom: -4rem;
+.main .description p {
+  font-size: .8rem;
 }
 
-.main .status p strong {
+.main .description span {
+  font-weight: bolder;
+}
+
+.main .status-bar {
+  background-color: #0c122c;
+  width: 100%;
+  margin-top: 5%;
+  padding: .2rem;
+  border-radius: 20px;
+}
+
+.main .status-bar .bar {
+  border-radius: 20px;
+  width: 75%;
+  padding: .2rem;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
+  background-image: linear-gradient(to right, #ffa399, #ff4d97);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.main .status-bar .bar .whiteball {
+  width: 10px;
+  height: 10px;
+  margin: -2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.main .limit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #dddbff;
+  margin: .5rem 0 1.5rem 0;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.speech-bubble .status {
+  position: relative;
+  background-color: #dddbff;
+  color: #0c122c;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-weight: 700px;
+  width: 100%;
+  margin-top: -25%;
+  /*
+        .status:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #000000 transparent transparent transparent;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -10px;
+}
+        */
+}
+
+.speech-bubble .status p strong {
   font-size: 2rem;
 }
 
-.main .status p span {
+.speech-bubble .status p span {
   opacity: 50%;
   font-size: .8rem;
   text-transform: uppercase;

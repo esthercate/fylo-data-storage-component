@@ -9,6 +9,14 @@ $Grayish-Blue: hsl(229, 7%, 55%);
 $Dark-Blue: hsl(228, 56%, 26%);
 $Very-Dark-Blue: hsl(229, 57%, 11%);
 
+$desktop : 900px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,18 +27,45 @@ body {
     background: url(../images/bg-mobile.png) no-repeat;
     font-family: $font-family;
     font-size: $Font-size;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+        background-image: url("../images/bg-desktop.png");
+        background-color: $Very-Dark-Blue;
+        background-size: 100% 50%;
+        background-position: 40% 80%;
+        
+    }
 }
 
-.grid-container {
+.container {
     max-width: 375px;
-    padding: 3rem 3rem;
-    margin-top: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+        min-width: 800px;
+    }
 }
 
 .header {
     background-color: $Dark-Blue;
     padding: 2.5rem;
-    border-radius: 8px 80px 8px 8px;
+    border-radius: 10px 80px 10px 10px;
+    width: 80%;
+
+    @include desktop {
+        width: 40%;
+        margin-right: 2rem;
+    }
 
     .logo {
 
@@ -58,32 +93,96 @@ body {
 .main {
     background-color: $Dark-Blue;
     margin-top: 1rem;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
     text-align: center;
+    width: 80%;
+
+    @include desktop {
+        width: 60%;
+    }
 
     .description {
-        color: $Grayish-Blue;
+        color: $Pale-Blue;
+
+        p {
+            font-size: .8rem;
+        }
 
         span {
-            color: $Pale-Blue;
+            font-weight: bolder;
         }
     }
 
+    .status-bar {
+        background-color: $Very-Dark-Blue;
+        width: 100%;
+        margin-top: 5%;
+        padding: .2rem;
+        border-radius: 20px;
+
+        .bar {
+            border-radius: 20px;
+            width: 75%;
+            padding: .2rem;
+            background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+            display: flex;
+            justify-content: flex-end;
+
+            .whiteball {
+                width: 10px;
+                height: 10px;
+                margin: -2px;
+                background-color: white;
+                border-radius: 50%;
+            }
+        }
+
+    }
+
+    .limit {
+        display: flex;
+        justify-content: space-between;
+        color: $Pale-Blue;
+        margin: .5rem 0 1.5rem 0;
+        font-size: .8rem;
+        font-weight: bold;
+    }  
+}
+
+.speech-bubble {
     .status {
+        position: relative;
         background-color: $Pale-Blue;
         color: $Very-Dark-Blue;
-        font-weight: 700;
-        padding: 1rem 0;
-        width: 60%;;
-        border-radius: 8px;
-        margin: auto;
-        margin-bottom: -4rem;
+        text-align: center;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        font-weight: 700px;
+        width: 100%;
+        margin-top: -25%;
+
+        /*
+        .status:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #000000 transparent transparent transparent;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -10px;
+}
+        */
 
         p {
 
             strong {
                 font-size: 2rem;
+                
             }
 
             span {
